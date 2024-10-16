@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Examen01Forever3</string>
+    <string name="title1">Casinito Forever</string>
+    <string name="subtitulo">Datos del jugador</string>
+    <string name="player">Nombre del jugador</string>
+    <string name="birthdate">Fecha de nacimiento</string>
+    <string name="FecNac">Fecha de nacimiento</string>
+    <string name="etfunds">Fondo de apuestas</string>
+    <string name="etpieces">Cantidad de dados</string>
+    <string name="playbutton">Ingresar</string>
+    <string name="btnPlay">Jugar</string>
+    <string name="textoLorem">Los juegos de azar pueden volverse adictivos y afectar tu bienestar. Juega con responsabilidad!</string>
+
+    <!-- Radio Buttons -->
+    <string name="radio_label_01">Opción 1</string>
+    <string name="radio_label_02">Opción 2</string>
+    <string name="radio_label_03">Opción 3</string>
+    <string name="radio_label_04">Opción 4</string>
+    <string name="radio_label_05">Opción 5</string>
+    <string name="radio_label_06">Opción 6</string>
+    <string name="radio_label_07">Opción 7</string>
+    <string name="radio_label_08">Opción 8</string>
+    <string name="radio_label_09">Opción 9</string>
+    <string name="radio_label_10">Opción 10</string>
+    <string name="radio_label_11">Opción 11</string>
+    <string name="radio_label_12">Opción 12</string>
+    <string name="radio_label_13">Opción 13</string>
+    <string name="radio_label_14">Opción 14</string>
+    <string name="radio_label_15">Opción 15</string>
+    <string name="radio_label_16">Opción 16</string>
+    <string name="radio_label_17">Opción 17</string>
+    <string name="radio_label_18">Opción 18</string>
+
+</resources>
