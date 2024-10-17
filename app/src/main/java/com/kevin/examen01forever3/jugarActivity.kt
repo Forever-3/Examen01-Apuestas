@@ -1,5 +1,6 @@
 package com.kevin.examen01forever3
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -160,19 +161,23 @@ class jugarActivity : AppCompatActivity() {
         return listOf(resultado1, resultado2, resultado3)
     }
 
+
     private fun actualizarFondos() {
         findViewById<EditText>(R.id.funds).setText(availableFunds.toString())
     }
 
     private fun verificarFinJuego() {
-        if (consecutiveWins >= 3) {
-            Toast.makeText(this, "¡Ganaste 3 veces seguidas! ¡Felicidades!", Toast.LENGTH_SHORT).show()
-            // Aquí puedes pasar a la siguiente actividad o finalizar el juego
-            finish()
-        } else if (availableFunds <= 0) {
-            Toast.makeText(this, "Te has quedado sin dinero. Fin del juego.", Toast.LENGTH_SHORT).show()
-            // Aquí puedes pasar a la siguiente actividad o finalizar el juego
-            finish()
+        if (availableFunds <= 0) { // Verificar si se ha perdidotodo el dinero
+            // Si se ha perdidotodo el dinero, enviar a finalActivity
+            val intent = Intent(this, finalActivity::class.java)
+            intent.putExtra("HAS_WON", false)  // No ha ganado si ha perdidotodo el dinero
+            startActivity(intent)
+            finish()  // Finaliza la actividad actual
+        } else if (consecutiveWins >= 3) { // Verificar si ha ganado 3 veces seguidas
+            val intent = Intent(this, finalActivity::class.java)
+            intent.putExtra("HAS_WON", true)  // Ha ganado si ha ganado 3 veces seguidas
+            startActivity(intent)
+            finish()  // Finaliza la actividad actual
         }
     }
 
