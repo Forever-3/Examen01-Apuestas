@@ -31,4 +31,12 @@
     <string name="radio_label_17">Opción 17</string>
     <string name="radio_label_18">Opción 18</string>
 
+
+    <!-- FinalActivity -->
+
+    <string name="titleStatus">Estatus de Juego</string>
+
+    <string name="status">Carpe diem</string>
+
+
 </resources>
