@@ -1,4 +1,11 @@
 <resources>
+    <!-- Mensajes de error -->
+    <string name="empty_name_error">Por favor, ingresa tu nombre.</string>
+    <string name="insufficient_funds_error">El monto de fondos debe ser al menos 2 millones.</string>
+    <string name="empty_birthdate_error">Por favor, selecciona tu fecha de nacimiento.</string>
+    <string name="age_limit_error">Debes tener al menos 21 años para jugar.</string>
+
+    <!-- Otras cadenas ya existentes -->
     <string name="app_name">Examen01Forever3</string>
     <string name="title1">Casinito Forever</string>
     <string name="subtitulo">Datos del jugador</string>
@@ -31,12 +38,7 @@
     <string name="radio_label_17">Opción 17</string>
     <string name="radio_label_18">Opción 18</string>
 
-
     <!-- FinalActivity -->
-
     <string name="titleStatus">Estatus de Juego</string>
-
     <string name="status1">Carpe diem</string>
-
-
 </resources>

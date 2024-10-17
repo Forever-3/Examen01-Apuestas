@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Examen01Forever3</string>
+    <string name="title1">Casinito Forever</string>
+    <string name="subtitulo">Dados do jogador</string>
+    <string name="player">Nome do jogador</string>
+    <string name="birthdate">Data de nascimento</string>
+    <string name="FecNac">Data de nascimento</string>
+    <string name="etfunds">Fundo de apostas</string>
+    <string name="etpieces">Quantidade de dados</string>
+    <string name="playbutton">Ingresar</string>
+    <string name="btnPlay">Jogar</string>
+    <string name="textoLorem">Os jogos de azar podem se tornar viciantes e afetar seu bem-estar. Jogue com responsabilidade!</string>
+    <string name="titleStatus">Status do Jogo</string>
+    <string name="status1">Aproveite o momento</string>
+</resources>

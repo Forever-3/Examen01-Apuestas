@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Examen01Forever3</string>
+    <string name="title1">Casinito Forever</string>
+    <string name="subtitulo">Player Data</string>
+    <string name="player">Player Name</string>
+    <string name="birthdate">Date of Birth</string>
+    <string name="FecNac">Date of Birth</string>
+    <string name="etfunds">Bet Funds</string>
+    <string name="etpieces">Number of Dice</string>
+    <string name="playbutton">Enter</string>
+    <string name="btnPlay">Play</string>
+    <string name="textoLorem">Gambling can become addictive and affect your well-being. Play responsibly!</string>
+
+    <!-- Radio Buttons -->
+    <string name="radio_label_01">Option 1</string>
+    <string name="radio_label_02">Option 2</string>
+    <string name="radio_label_03">Option 3</string>
+    <string name="radio_label_04">Option 4</string>
+    <string name="radio_label_05">Option 5</string>
+    <string name="radio_label_06">Option 6</string>
+    <string name="radio_label_07">Option 7</string>
+    <string name="radio_label_08">Option 8</string>
+    <string name="radio_label_09">Option 9</string>
+    <string name="radio_label_10">Option 10</string>
+    <string name="radio_label_11">Option 11</string>
+    <string name="radio_label_12">Option 12</string>
+    <string name="radio_label_13">Option 13</string>
+    <string name="radio_label_14">Option 14</string>
+    <string name="radio_label_15">Option 15</string>
+    <string name="radio_label_16">Option 16</string>
+    <string name="radio_label_17">Option 17</string>
+    <string name="radio_label_18">Option 18</string>
+
+    <!-- FinalActivity -->
+    <string name="titleStatus">Game Status</string>
+    <string name="status1">Carpe diem</string>
+</resources>

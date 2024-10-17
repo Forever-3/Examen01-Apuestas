@@ -18,8 +18,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var numberPickerPieces: NumberPicker
     private lateinit var btnPlay: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {super.onCreate(savedInstanceState)
+
+        // Inicializa SharedPreferences y establece el idioma
+        val sharedPreferences = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        val language = sharedPreferences.getString("app_language", "es")
+        setLocale(language)
+
         setContentView(R.layout.activity_main)
 
         // Inicialización de vistas
@@ -47,15 +52,22 @@ class MainActivity : AppCompatActivity() {
 
             // Validaciones
             if (playerName.isEmpty()) {
-                showToast("Por favor, ingresa tu nombre.")
+                showToast(getString(R.string.empty_name_error))
                 return@setOnClickListener
             }
             if (funds == null || funds < 2000000) {
-                showToast("El monto de fondos debe ser al menos 2 millones.")
+                showToast(getString(R.string.insufficient_funds_error))
                 return@setOnClickListener
             }
             if (birthdate.isEmpty()) {
-                showToast("Por favor, selecciona tu fecha de nacimiento.")
+                showToast(getString(R.string.empty_birthdate_error))
+                return@setOnClickListener
+            }
+
+            // Verificar si el jugador tiene al menos 21 años
+            val age = calculateAge(birthdate)
+            if (age < 21) {
+                showToast(getString(R.string.age_limit_error))
                 return@setOnClickListener
             }
 
@@ -69,6 +81,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    private fun setLocale(language: String?) {
+        val locale = Locale(language ?: "es") // Por defecto a español
+        Locale.setDefault(locale)
+
+        val config = resources.configuration
+        config.setLocale(locale)
+
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
 
     // Muestra el DatePickerDialog
     private fun showDatePickerDialog() {
@@ -84,6 +107,28 @@ class MainActivity : AppCompatActivity() {
             }, year, month, day)
 
         datePickerDialog.show()
+    }
+
+    // Función para calcular la edad del jugador
+    private fun calculateAge(birthdate: String): Int {
+        val parts = birthdate.split("/")
+        if (parts.size != 3) return 0
+
+        val day = parts[0].toInt()
+        val month = parts[1].toInt()
+        val year = parts[2].toInt()
+
+        val birthCalendar = Calendar.getInstance()
+        birthCalendar.set(year, month - 1, day)
+
+        val today = Calendar.getInstance()
+        var age = today.get(Calendar.YEAR) - birthCalendar.get(Calendar.YEAR)
+
+        if (today.get(Calendar.DAY_OF_YEAR) < birthCalendar.get(Calendar.DAY_OF_YEAR)) {
+            age--
+        }
+
+        return age
     }
 
     // Función para mostrar mensajes Toast
