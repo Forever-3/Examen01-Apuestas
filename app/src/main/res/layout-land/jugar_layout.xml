@@ -112,11 +112,15 @@
     </LinearLayout>
 
     <!--Dados-->
+
+    <!--Layout Central-->
+
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="240dp"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -143,8 +147,7 @@
                 android:layout_width="60sp"
                 android:layout_height="80sp"
                 android:paddingRight="3sp"
-                android:src="@drawable/dado1"
-                />
+                android:src="@drawable/dado1" />
 
             <ImageView
                 android:id="@+id/dice2"
@@ -163,9 +166,6 @@
         </TableRow>
 
     </TableLayout>
-
-    <!--Layout Central-->
-
 
     <TextView
         android:layout_width="wrap_content"
