@@ -1,6 +1,8 @@
 package com.kevin.examen01forever3
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -110,6 +112,14 @@ class jugarActivity : AppCompatActivity() {
         // Generar resultados aleatorios de los dados
         val resultados = generarResultadosDados()
 
+        // Obtener referencias a los dados
+        val dice1 = findViewById<ImageView>(R.id.dice1)
+        val dice2 = findViewById<ImageView>(R.id.dice2)
+        val dice3 = findViewById<ImageView>(R.id.dice3)
+
+        // Animar los dados
+        animarDados(dice1, dice2, dice3, resultados)
+
         // Obtener la selección del número apostado
         val selectedRadioButton = findViewById<RadioButton>(selectedRadioButtonId!!)
         val selectedNumber = selectedRadioButton.text.toString().toInt()
@@ -135,12 +145,12 @@ class jugarActivity : AppCompatActivity() {
         // Actualizar los fondos disponibles
         actualizarFondos()
 
-        // Condiciones para verificar si el jugador ha ganado 3 veces seguidas o si perdió todo su dinero
+        // Condiciones para verificar si el jugador ha ganado 3 veces seguidas o si perdiótodo su dinero
         verificarFinJuego()
     }
 
     private fun isBetValid(betString: String): Boolean {
-        return betString.isNotEmpty() && betString.toInt() > 0
+        return betString.isNotEmpty() && betString.toInt() >= 2000000 // Validar apuesta mínima de 2 millones
     }
 
     private fun generarResultadosDados(): List<Int> {
@@ -163,6 +173,44 @@ class jugarActivity : AppCompatActivity() {
             Toast.makeText(this, "Te has quedado sin dinero. Fin del juego.", Toast.LENGTH_SHORT).show()
             // Aquí puedes pasar a la siguiente actividad o finalizar el juego
             finish()
+        }
+    }
+
+    // Animación de los dados
+    private fun animarDados(dice1: ImageView, dice2: ImageView, dice3: ImageView, resultados: List<Int>) {
+        val handler = Handler(Looper.getMainLooper())
+        val delay = 100L // Tiempo entre cambios de imagen
+
+        // Animación para cambiar las imágenes de los dados rápidamente
+        for (i in 1..6) {
+            handler.postDelayed({
+                // Cambia las imágenes de los dados durante la animación
+                val resId1 = resources.getIdentifier("cara$i", "drawable", packageName)
+                dice1.setImageResource(resId1)
+
+                val resId2 = resources.getIdentifier("cara$i", "drawable", packageName)
+                dice2.setImageResource(resId2)
+
+                if (dice3.visibility == View.VISIBLE) {
+                    val resId3 = resources.getIdentifier("cara$i", "drawable", packageName)
+                    dice3.setImageResource(resId3)
+                }
+            }, delay * i)
+        }
+
+        // Después de la animación, muestra el resultado real de los dados
+        handler.postDelayed({
+            mostrarResultadoDados(dice1, dice2, dice3, resultados)
+        }, delay * 6)
+    }
+
+    // Mostrar el resultado final de los dados
+    private fun mostrarResultadoDados(dice1: ImageView, dice2: ImageView, dice3: ImageView, resultados: List<Int>) {
+        dice1.setImageResource(resources.getIdentifier("cara${resultados[0]}", "drawable", packageName))
+        dice2.setImageResource(resources.getIdentifier("cara${resultados[1]}", "drawable", packageName))
+
+        if (dice3.visibility == View.VISIBLE) {
+            dice3.setImageResource(resources.getIdentifier("cara${resultados[2]}", "drawable", packageName))
         }
     }
 }
